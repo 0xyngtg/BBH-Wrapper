@@ -1,0 +1,12 @@
+{
+    "tools": {
+        "findomain": "https://github.com/Findomain/Findomain",
+        "waymore": "https://github.com/xnl-h4ck3r/waymore",
+        "sublist3r": "https://github.com/aboul3la/sublist3r",
+        "github-subdomains": "https://github.com/gwen001/github-subdomains",
+        "shosubgo": "https://github.com/incogbyte/shosubgo",
+        "assetfinder": "https://github.com/tomnomnom/assetfinder",
+        "httprobe": "https://github.com/tomnomnom/httprobe",
+        "eyewitness": "https://github.com/RedSiege/EyeWitness"
+    }
+}
