@@ -1,0 +1,10 @@
+{
+    "findomain": {"-t": "target", "-o": "output"},
+    "waymore": {"-i": "target", "-oU": "output"},
+    "sublist3r": {"-d": "target", "-o": "output"},
+    "github-subdomains": {"-d": "target", "-o": "output", "-t": "token"},
+    "shosubgo": {"-d": "target", "-f": "output", "-s": "token"},
+    "assetfinder": {"-subs-only": ""},
+    "httprobe": {},
+    "eyewitness": {}
+}
