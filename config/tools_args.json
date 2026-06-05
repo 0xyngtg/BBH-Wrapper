@@ -1,8 +1,0 @@
-{
-    "findomain": ["-t", "-o"],
-    "waymore": ["-i", "-oU"],
-    "sublist3r": ["-d", "-o"],
-    "github-subdomains": ["-d", "-o", "-t"],
-    "shosubgo": ["-d", "-f", "-s"],
-    "assetfinder": ["-subs-only"]
-}
