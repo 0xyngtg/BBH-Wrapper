@@ -21,12 +21,9 @@ def check_tool(tool: str, url: str) -> None:
     
     tools_local_paths[tool] = tool_path
 
-def main() -> dict[str, str]:
+def run() -> dict[str, str]:
     tools : dict[str, str] = load_config(CONFIG_FILE).get("tools")
     
     for tool, url in tools.items():
         check_tool(tool, url)
     return tools_local_paths
-
-if __name__ == "__main__":
-    main()
