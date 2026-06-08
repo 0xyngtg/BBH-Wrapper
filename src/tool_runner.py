@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 CONFIG_FILE: str = "config/tools_config.json"
 
-TARGET: str = "zara.com"
+TARGET: str = "domain.com"
 
 type Arguments = dict[str, str]
 
@@ -26,12 +26,19 @@ class Tool:
                 self.arguments[arg] = ""
     
     def run(self) -> subprocess.CompletedProcess:
-        args_list = [self.path] + [f"{k} {v}" for k,v in self.arguments.items()]
+        args_list = [self.path.name]
+        for k, v in self.arguments.items():
+            if v is None or v == "":
+                continue
+            args_list.append(k)
+            args_list.append(v)
         try:
-            result = subprocess.CompletedProcess = subprocess.run(args_list)
+            print(f"[*] Running {self.name}...")
+            result: subprocess.CompletedProcess = subprocess.run(args_list)
+            return result
         except Exception as e:
-            f"Error running {self.name}"
-        return result
+            print(f"Error running {self.name}: {e}")
+            raise
 
 def load_config(config_file: str) -> dict[str, dict[str, str]]:
     with open(config_file, "r") as conf:
