@@ -1,6 +1,6 @@
 {
-    "findomain": {"-t": "target", "-o": "output"},
-    "waymore": {"-i": "target", "-oU": "output"},
+    "findomain": {"-t": "target", "-o": ""},
+    "waymore": {"-i": "target", "-mode": "U" ,"-oU": "output"},
     "sublist3r": {"-d": "target", "-o": "output"},
     "github-subdomains": {"-d": "target", "-o": "output", "-t": "token"},
     "shosubgo": {"-d": "target", "-f": "output", "-s": "token"},
