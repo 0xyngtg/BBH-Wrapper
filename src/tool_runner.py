@@ -37,9 +37,7 @@ def load_config(config_file: str) -> dict[str, dict[str, str]]:
     with open(config_file, "r") as conf:
         return json.load(conf)
 
-def main() -> None:
-    tools_local_paths: dict[str, str] = tool_checker.main()
-    
+def run(tools_local_paths: dict[str, str]) -> None:
     tools_arguments: dict[str, Arguments] = load_config(CONFIG_FILE)
     
     for tool, arguments in tools_arguments.items():
@@ -49,6 +47,3 @@ def main() -> None:
             arguments=arguments
         )
         tool.run()
-
-if __name__ == "__main__":
-    main()
