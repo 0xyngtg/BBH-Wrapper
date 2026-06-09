@@ -3,3 +3,4 @@
 
 src/__pycache__
 config/tokens.json
+results/*
