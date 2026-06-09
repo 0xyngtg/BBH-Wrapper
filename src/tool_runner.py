@@ -38,9 +38,8 @@ class Tool:
                 args_list.append(v)
         try:
             print(f"[*] Running {self.name}...")
-            print(args_list)
-            #result: subprocess.CompletedProcess = subprocess.run(args_list)
-            #return result
+            result: subprocess.CompletedProcess = subprocess.run(args_list)
+            return result
         except Exception as e:
             print(f"Error running {self.name}: {e}")
             raise
