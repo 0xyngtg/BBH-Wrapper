@@ -15,8 +15,6 @@
         "sublist3r": {"-d": "target", "-o": "output"},
         "github-subdomains": {"-d": "target", "-o": "output", "-t": "token"},
         "shosubgo": {"-d": "target", "-f": "output", "-s": "token"},
-        "assetfinder": {"": "target", "-subs-only": ""},
-        "httprobe": {},
-        "eyewitness": {}
+        "assetfinder": {"": "target", "-subs-only": ""}
     }
 }
