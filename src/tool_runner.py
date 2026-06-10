@@ -8,19 +8,19 @@ type Arguments = dict[str, str]
 CONFIG_FILE: str = "config/config.json"
 TOKENS_FILE: str = "config/tokens.json"
 RESULTS_DIR: str = "results"
-TARGET: str = input("Target Domain > ")
 
 @dataclass
 class Tool:
+    target: str
     name: str
     path: Path
     arguments: Arguments
     _token: str|None
     
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         for arg, value in self.arguments.items():
             if value == "target":
-                self.arguments[arg] = TARGET
+                self.arguments[arg] = self.target
             elif value == "output":
                 self.arguments[arg] = f"{RESULTS_DIR}/{self.name}.out"
             elif value == "token":
@@ -59,7 +59,7 @@ def load_tokens(token_file: str) -> dict[str, str]:
         tokens: dict[str, str] = json.load(t)
         return tokens
 
-def run(tools_local_paths: dict[str, str]) -> None:
+def run(tools_local_paths: dict[str, str], target: str) -> None:
     tools_arguments: dict[str, Arguments] = load_config(CONFIG_FILE)
     tokens: dict[str, str] = load_tokens(TOKENS_FILE)
     
@@ -81,6 +81,7 @@ def run(tools_local_paths: dict[str, str]) -> None:
             continue
         
         tool = Tool(
+            target=target,
             name=tool,
             path=path,
             arguments=arguments,
