@@ -6,7 +6,7 @@ LOCK = Lock()
 RESULTS_DIR: Path = Path("results")
 RESULTS_FILE: Path = RESULTS_DIR / Path("results.txt")
 ALIVE_HOSTS_FILE: Path = RESULTS_DIR / Path("alive_hosts.txt")
-ALIVE_HOSTS_LIST: list[str] = []
+alive_hosts_list: list[str] = []
 
 HEADERS: dict[str, str] = {
     "User-Agent": "Mozilla/5.0 (X11; Linux; rv:74.0) Gecko/20100101 Firefox/74.0"
@@ -14,7 +14,7 @@ HEADERS: dict[str, str] = {
 
 def open_subs_file(file: Path) -> list[str]:
     targets: list[str] = []
-    schemas: list[str] = ["http", "https"]
+    schemas: list[str] = ["http://", "https://"]
     with open(file, "r") as f:
         for line in f.readlines():
             for schema in schemas:
@@ -25,13 +25,14 @@ def worker(url: str) -> None:
     try:
         requests.Response = requests.get(url=url, headers=HEADERS, timeout=5)
         with LOCK:
-            ALIVE_HOSTS_LIST.append(url)
+            alive_hosts_list.append(url)
     except requests.RequestException as e:
         pass
 
 def log_results() -> None:
     with open(ALIVE_HOSTS_FILE, "w") as f:
-        f.writelines(ALIVE_HOSTS_LIST)
+        for line in alive_hosts_list:
+            f.write(line+"\n")
 
 def run() -> None:
     threads: list[Thread] = []
@@ -39,7 +40,7 @@ def run() -> None:
     targets: list[str] = open_subs_file(RESULTS_FILE)
     
     for url in targets:
-        t: Thread = Thread(target=worker, args=(url,), kwargs={"delay": 1})
+        t: Thread = Thread(target=worker, args=(url,))
         threads.append(t)
     
     for t in threads:
