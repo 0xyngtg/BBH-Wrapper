@@ -22,7 +22,7 @@ def line_counter(file: Path) -> int:
             line_number += 1
     return line_number
 
-def run(domain):
+def run(domain) -> None:
     pattern: str = fr"^([a-zA-Z0-9-]+\.)+{re.escape(domain)}$"
     
     files_list: list[Path] = get_result_files(RESULTS_DIR)
