@@ -1,7 +1,7 @@
-from bbh_wrapper import tool_checker
-from bbh_wrapper import tool_runner
-from bbh_wrapper import output_processing
-from bbh_wrapper import probe_targets
+import tool_checker
+import tool_runner
+import output_processing
+import probe_targets
 
 TARGET: str = input("Target Domain > ")
 
