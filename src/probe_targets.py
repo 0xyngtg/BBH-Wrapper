@@ -33,6 +33,7 @@ def log_results() -> None:
     with open(ALIVE_HOSTS_FILE, "w") as f:
         for line in alive_hosts_list:
             f.write(line+"\n")
+    print(f"[+] {len(alive_hosts_list)} live subdomains...")
 
 def run() -> None:
     threads: list[Thread] = []
