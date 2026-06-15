@@ -1,5 +1,6 @@
 import json
 import subprocess
+import os
 from pathlib import Path
 from dataclasses import dataclass
 
@@ -44,6 +45,11 @@ class Tool:
             if ["-f", "-o", "-oU"] not in args_list:
                 with open(f"{RESULTS_DIR}/{self.name}.out", "w") as f:
                     f.write(result.stdout)
+            
+            #findomain specific
+            if self.name == "findomain":
+                os.replace(f"{self.target}.txt", "results/findomain.out")
+            
         except Exception as e:
             print(f"Error running {self.name}: {e}")
             raise
