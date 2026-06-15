@@ -12,4 +12,4 @@ dependencies = [
     "requests>=2.34.2",
 ]
 [project.scripts]
-bbhwrapper = "bbh_wrapper.__main__.main"
+bbhwrapper = "bbh_wrapper.__main__:main"
