@@ -1,5 +1,5 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 RESULTS_DIR: Path = Path("results")
 RESULTS_FILE: Path = RESULTS_DIR / Path("results.txt")
